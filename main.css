@@ -1,3 +1,4 @@
+/* From rupumped.github.io/main.css */
 :root {
     --img-margin: 0.5em;
     --bg-color: white;
@@ -18,36 +19,8 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
 }
-.separator {
-    height: 1px;
-    background-color: var(--seperator-color);
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-.section, section {
-    margin-top: 2cm;
-    margin-bottom: 2cm;
-}
-h2 {
-    font-weight: bold;
-    font-size: xx-large;
-}
-.centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-a {
-    color: #4CAAC9;
-}
-a:hover {
-    color: #3387a2;
-}
 
 header {
-    background-color: var(--bg-color);
     font-family: 'Open Sans', sans-serif;
 }
 header #name {
@@ -58,259 +31,148 @@ header #name {
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
-header .menu-btn {
-    display: none;
-}
-header .menu-icon {
-    display: none;
-}
-header ul {
-    list-style: none;
-    text-align: center;
-    font-size: 1.2ch;
-}
-header ul li {
-    display: inline-block;
-}
-header ul li a {
-    text-align: center;
-    margin: 0 1em;
-    white-space: nowrap;
-}
-header ul li a.active-link {
-    text-decoration: none;
-    color: #ccc;
-}
-header ul li a.active-link:hover {
-    text-decoration: none;
-    color: #ccc;
+
+/* From rupumped.github.io/business-card/business-card.css */
+:root {
+    --bg-color: #1D9BF0;
+    --text-color: white;
+    --translucent-black: rgba(0,0,0,0.8);
+    --blue-triangle-height: 2cm;
+    --black-triangle-height: 3.5cm;
+    --black-triangle-width: 80%;
+    --crop-dist: 0px;
 }
 
-header ul li#business-card {
-    display: none;
+body {
+    background: var(--bg-color);
 }
 
-.img-right {
+#bg-container {
+    position: fixed;
+    bottom: -15px;
+    left: 0;
+}
+#blue-triangle{
     position: relative;
-    float: right;
-    clear: right;
-    max-width: 100%;
-    margin-left: var(--img-margin);
-}
-.img-left {
-    position: relative;
-    float: left;
-    clear: left;
-    max-width: 100%;
-    margin-right: var(--img-margin);
-}
-.img-right, .img-left {
-    padding: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(0,0,0,0.13);
-}
-.img-full-width {
+    top: calc(var(--blue-triangle-height) + var(--black-triangle-height) + var(--crop-dist));
+    left: 0;
+    background-image: linear-gradient(to top right, transparent 50%, var(--bg-color) 50%);
+    height: var(--blue-triangle-height);
     width: 100%;
-    height: auto;
+    z-index: 3;
+}
+#black-triangle{
+    position: relative;
+    top: calc(var(--black-triangle-height) + var(--crop-dist));
+    float: right;
+    background-image: linear-gradient(to top right, transparent 50%, black 50%);
+    height: var(--black-triangle-height);
+    width: var(--black-triangle-width);
+    z-index: 2;
+}
+#bg-img {
+    width: 100%;
+    z-index: 1;
+    clip-path: inset(var(--crop-dist) 0px 0px 0px);
 }
 
-div.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+header {
+    position: relative;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
-div.gallery a {
-    height: 60px;
-    padding: 2px;
-    margin: 1px;
-    border: 1px solid #ccc;
+header img {
+    width: 100%;
+    margin: 0.5cm 0;
 }
-div.gallery a:hover {
-    border-color: #777;
-}
-div.gallery img {
-    height: 100%;
-    width: auto;
-}
-
-iframe {
-    border: none;
-}
-
-footer {
-    margin-top: 2cm;
+header #name {
+    width: 100%;
     text-align: center;
-    font-size: small;
-    line-height: normal;
+    font-family: 'Roboto Slab', serif;
+    font-size: 35px;
+    line-height: 1.1em;
+    margin-top: 0.1em;
+    margin-bottom: 0.4em;
 }
-footer img {
-    margin-bottom: 0.6em;
+header #job {
+    text-align: center;
+    font-size: 25px;
 }
 
-@media (prefers-color-scheme: dark) {
+main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 1cm;
+}
+.contact {
+    display: flex;
+    align-items: center;
+    background: var(--translucent-black);
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    margin: 0.25cm 0;
+}
+.contact:hover {
+    color: white;
+    text-decoration: underline;
+}
+.contact img {
+    width: 0.9cm;
+    border-radius: 50%;
+    margin: 0.4cm;
+}
+
+textarea {
+    font-size: 17px;
+    background: var(--translucent-black);
+    color: white;
+    resize: none;
+}
+textarea:focus {
+    outline: none;
+}
+
+@media (min-aspect-ratio: 375/718) {
     :root {
-        --bg-color: black;
-        --text-color: white;
+        --crop-dist: 2cm;
     }
-
-    th {
-        color: var(--bg-color);
-    }
-}
-
-@media only screen and (max-width: 766px) {
-    :root {
-        --mobile-name-size: 1.1em;
-        --mobile-menu-icon-padding: 28px;
-        --hamburger-radius: 5px;
-        --hamburger-slice-height: 2px;
-    }
-
-    header {
-        position: fixed;
-        top: 0;
-        left: 5%;
-        width: var(--max-w);
-        background-color: var(--bg-color);
-        border-bottom: 2px solid var(--seperator-color);
-        z-index: 9;
-    }
-
-    header ul {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: var(--bg-color);
-    }
-
-    header ul li {
-        display: initial;
-    }
-    
-    header ul li a {
-        display: block;
-        margin: 0;
-        padding: 10px 0;
-        text-align: center;
-    }
-    
-    header li a:hover,
-    header .menu-btn:hover {
-        background-color: #f4f4f4;
-    }
-
-    header ul li#business-card {
-        display: initial;
-    }
-    header ul li#business-card a {
-        color: rgba(0,0,0,1);
-    }
-    
-    header #name {
-        display: block;
-        float: left;
-        font-size: var(--mobile-name-size);
-        padding: calc(var(--mobile-menu-icon-padding) - var(--mobile-name-size) / 2 - var(--hamburger-slice-height)) 0;
-        text-decoration: none;
-        text-align: left;
-        margin: 0 auto;
-    }
-    
-    /* menu */
-    
-    header .menu {
-        clear: both;
-        max-height: 0;
-        transition: max-height .5s ease;
-    }
-    
-    /* menu icon */
-    
-    header .menu-icon {
-        cursor: pointer;
-        display: block;
-        padding: var(--mobile-menu-icon-padding) 0;
-        position: relative;
-        float: right;
-        user-select: none;
-        box-sizing: border-box;
-    }
-    
-    header .menu-icon .navicon {
-        background: #333;
-        display: block;
-        height: var(--hamburger-slice-height);
-        position: relative;
-        transition: background .2s ease-out;
-        width: 18px;
-    }
-    
-    header .menu-icon .navicon:before,
-    header .menu-icon .navicon:after {
-        background: #333;
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        transition: all .2s ease-out;
-        width: 100%;
-    }
-    
-    header .menu-icon .navicon:before {
-        top: var(--hamburger-radius);
-    }
-    
-    header .menu-icon .navicon:after {
-        top: calc(-1 * var(--hamburger-radius));
-    }
-    
-    /* menu btn */
-    
-    header .menu-btn:checked ~ .menu {
-        max-height: 100vh;
-        height: 100vh;
-    }
-    
-    header .menu-btn:checked ~ .menu-icon .navicon {
-        background: transparent;
-    }
-    
-    header .menu-btn:checked ~ .menu-icon .navicon:before {
-        transform: rotate(-45deg);
-    }
-    
-    header .menu-btn:checked ~ .menu-icon .navicon:after {
-        transform: rotate(45deg);
-    }
-    
-    header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-    header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-        top: 0;
-    }
-
     main {
-        margin-top: 4.5em;
+        margin: 0.2cm 0;
     }
-
-    div.gallery a {
-        height: 40px;
+    .contact {
+        margin: 0.2cm 0;
     }
+}
+@media (min-aspect-ratio: 375/664) {
+    :root {
+        --crop-dist: 3cm;
+    }
+    main {
+        margin: 0.1cm 0;
+    }
+    .contact {
+        margin: 0.1cm 0;
+    }
+}
 
-    @media (prefers-color-scheme: dark) {
-        header {
-            border-color: #2b2b2b;
-        }
-
-        header li a:hover,
-        header .menu-btn:hover {
-            background-color: #0b0b0b;
-        }
-        header .menu-icon .navicon,
-        header .menu-icon .navicon:before,
-        header .menu-icon .navicon:after {
-            background: #ccc;
-            background: #ccc;
-        }
+@media (min-aspect-ratio: 568/883) {
+    :root {
+       --max-width: 424px;
+    }
+    body {
+        width: var(--max-width);
+        padding: 1em;
+        border: 2px solid black;
+    }
+    #bg-container {
+        display: none;
     }
 }
