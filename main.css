@@ -14,7 +14,7 @@ body {
     max-width: var(--max-w);
     font-family: 'Questrial', sans-serif;
     font-size: 21px;
-    line-height: 1.4em;
+    line-height: 1em;
     letter-spacing: 0.06em;
     color: var(--text-color);
     background-color: var(--bg-color);
