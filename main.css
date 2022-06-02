@@ -14,7 +14,7 @@ body {
     max-width: var(--max-w);
     font-family: 'Questrial', sans-serif;
     font-size: 21px;
-    line-height: 1em;
+    line-height: 1.4em;
     letter-spacing: 0.06em;
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -175,4 +175,9 @@ textarea:focus {
     #bg-container {
         display: none;
     }
+}
+
+/* New */
+.contact {
+    line-height: 1.3em;
 }
